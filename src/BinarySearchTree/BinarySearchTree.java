@@ -323,8 +323,7 @@ public class BinarySearchTree <AnyType extends Comparable<? super AnyType>>{
     }
     public void levelOrder(BinaryNode<AnyType> n, Queue L)
     {
-        if(L.isEmpty())
-        {}
+        if(L.isEmpty()){}
         else
         {
             BinaryNode head = (BinaryNode)L.poll();
