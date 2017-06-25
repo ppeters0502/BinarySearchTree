@@ -62,7 +62,7 @@ public class BinarySearchTreeMain {
                                 break;
                             case 6: System.out.println("___________________________________________________");
                                     System.out.println("Finding level order of the Binary Search Tree...");
-                                    System.out.println("Level Order: \n"+T.levelOrder());
+                                    T.levelOrder();
                                 break;
                             case 7: System.out.println("ok");
                                 break;
