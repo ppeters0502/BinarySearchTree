@@ -5,14 +5,15 @@
  */
 package BinarySearchTree;
 
-import java.util.Scanner;
-import java.util.Random;
+import java.util.LinkedList;
+import java.util.NoSuchElementException;
+import java.util.Queue;
 
 /**
  *
  * @author ppete
  */
-public class BinarySearchTree <AnyType extends Comparable<? super AnyType>> extends ListQueue{
+public class BinarySearchTree <AnyType extends Comparable<? super AnyType>>{
 
     
     /*Constructor*/
@@ -313,39 +314,37 @@ public class BinarySearchTree <AnyType extends Comparable<? super AnyType>> exte
             return 1 + (findTwoChildren(n.left) + findTwoChildren(n.right));
     }
     
-    public int levelOrder()
+    public void levelOrder()
     {
-        ListQueue L = new ListQueue();
-        levelOrder(root, L);
-        return 1;
+        Queue levelOrderQueue = new LinkedList();
+        levelOrderQueue.add(root);
+        levelOrder(root, levelOrderQueue);
 
     }
-    public void levelOrder(BinaryNode<AnyType> n, ListQueue L)
+    public void levelOrder(BinaryNode<AnyType> n, Queue L)
     {
-        L.enqueue(n);
-        if(n.left!=null || n.right!=null)
+        if(L.isEmpty())
+        {}
+        else
         {
-            System.out.println(L.dequeue());
-            if (n.left!=null)
+            BinaryNode head = (BinaryNode)L.poll();
+            System.out.println(head.element);
+            if(n.left!=null)
             {
-                L.enqueue(n.left);
-            }
-            else if (n.right!=null)
-            {
-                L.enqueue(n.right);
-            }
-            if (n.left!=null)
-            {
-                levelOrder(n.left, L);
+                try {
+                    L.add(n.left);
+                } catch (NoSuchElementException e)
+                { e.printStackTrace(); }
             }
             if(n.right!=null)
             {
-                levelOrder(n.right, L);
+                try {
+                    L.add(n.right);
+                } catch (NoSuchElementException e)
+                { e.printStackTrace(); }
             }
-        }
-        else
-        {
-            System.out.println(L.dequeue());
+            BinaryNode N = (BinaryNode)L.peek();
+            levelOrder(N, L);
         }
     }
     
