@@ -181,7 +181,7 @@ public class BinarySearchTree <AnyType extends Comparable<? super AnyType>>{
      * @param t the node that roots the subtree.
      * @return node containing the matched item.
      */
-    private boolean contains( AnyType x, BinaryNode<AnyType> t )
+    public boolean contains( AnyType x, BinaryNode<AnyType> t )
     {
         if( t == null )
             return false;
@@ -319,7 +319,6 @@ public class BinarySearchTree <AnyType extends Comparable<? super AnyType>>{
         Queue levelOrderQueue = new LinkedList();
         levelOrderQueue.add(root);
         levelOrder(root, levelOrderQueue);
-
     }
     public void levelOrder(BinaryNode<AnyType> n, Queue L)
     {
@@ -342,10 +341,24 @@ public class BinarySearchTree <AnyType extends Comparable<? super AnyType>>{
                 } catch (NoSuchElementException e)
                 { e.printStackTrace(); }
             }
-            BinaryNode N = (BinaryNode)L.peek();
-            levelOrder(N, L);
+            BinaryNode next = (BinaryNode)L.peek();
+            levelOrder(next, L);
         }
     }
+    public void printBetween(AnyType k1, AnyType k2)
+    {
+       
+    }
+    
+    public void printBetween(BinaryNode<AnyType> n)
+    {
+        
+    }
+//    
+//    public void printBetween(BinaryNode n)
+//    {
+//        
+//    }
     
     
     

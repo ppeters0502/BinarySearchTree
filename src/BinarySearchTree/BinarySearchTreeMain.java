@@ -64,7 +64,13 @@ public class BinarySearchTreeMain {
                                     System.out.println("Finding level order of the Binary Search Tree...");
                                     T.levelOrder();
                                 break;
-                            case 7: System.out.println("ok");
+                            case 7: System.out.println("___________________________________________________");
+                                    System.out.println("What value would you like for k1?");
+                                    int k1 = sc.nextInt();
+                                    System.out.println("What value would you like for k2?");
+                                    int k2 = sc.nextInt();
+                                    System.out.println("Finding node values inbetween "+k1+" and "+k2);
+                                    
                                 break;
                             case 8: 
                                 System.out.println("Thank you for using my system!");
