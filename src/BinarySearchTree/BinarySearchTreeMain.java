@@ -33,14 +33,14 @@ public class BinarySearchTreeMain {
                     switch(nextChoice) {
                             case 1: T.makeEmpty();
                                     System.out.println("How many values would you like to have in your tree?");
-                                    //I'm generating random numbers in between 0 and 1000 to insert into the tree.
                                     int size = sc.nextInt();
-                                    Random random = new Random();
-                                    for (int i = 0; i < size; i++)
+                                    System.out.println("Please enter "+size+" values one at a time below.");
+                                    for(int i=0; i<size; i++)
                                     {
-                                        int randomNumber = randomNumberGenerator( 0, 1000, random);
-                                        T.insert(randomNumber);
-                                        System.out.println("Number: "+randomNumber+" inserted!");
+                                        System.out.println("Please enter value number "+(i+1));
+                                        int value = sc.nextInt();
+                                        T.insert(value);
+                                        
                                     }
 
                                 break;
@@ -82,30 +82,6 @@ public class BinarySearchTreeMain {
                
                 
                 
-    }
-       /***************************************************
-    * FUNCTION Random Number Generator : (randomNumberGenerator) *
-    * This method generates the random numbers for inserting into
-    * the BinarySearchTree.
-    * based on the input from the user in the Main method
-    * INPUT PARAMETERS : 
-    * int aStart: lowest value allowed in our random number sequence.
-    * int aEnd: highest value allowed in our random number sequence.
-    * long numberRange: result of aEnd minus aStart. This determines 
-    * the range of the random number sequence.
-    * Random aRandom: Our object Random for the random number sequence
-    * OUTPUT : 
-    * int randomNumber: random integer for the random number sequence
-    * that fits within the number range. Is assigned into the sequence[]
-    * array in main method.
-    ****************************************************/ 
-     private static int randomNumberGenerator(int aStart, int aEnd, Random aRandom)
-    {
-        long numberRange = (long)aEnd - (long)aStart + 1;
-        long fraction = (long)(numberRange * aRandom.nextDouble());
-        int randomNumber = (int)(fraction + aStart);
-        return randomNumber;
-        
     }
     
 }
