@@ -72,12 +72,17 @@ public class BinarySearchTree <AnyType extends Comparable<? super AnyType>>{
             printTree( root );
     }
 
-    /**
-     * Internal method to insert into a subtree.
-     * @param x the item to insert.
-     * @param t the node that roots the subtree.
-     * @return the new root of the subtree.
-     */
+    /***************************************************
+    * FUNCTION insert : (Insert BinaryNode) *
+    * Inserts new BinaryNode into BinarySearchTree *
+    * INPUT PARAMETERS : *
+    * AnyType x: Value to be added as Node's element 
+    * BinaryNode t: checks if t is null to determine recursively
+    * if t is leaf node or parent.
+    * OUTPUT : *
+    * BinaryNode: newly inserted BinaryNode that is in the
+    * BinarySearchTree.
+     ****************************************************/
     private BinaryNode<AnyType> insert( AnyType x, BinaryNode<AnyType> t )
     {
         if( t == null )
@@ -93,10 +98,16 @@ public class BinarySearchTree <AnyType extends Comparable<? super AnyType>>{
             ;  // Duplicate; do nothing
         return t;
     }
-    /**
-     * Internal method to print a subtree in sorted order.
-     * @param t the node that roots the subtree.
-     */
+    /***************************************************
+    * FUNCTION printTree : (Print Binary Search Tree) *
+    * Prints BinarySearchTree in descending order *
+    * INPUT PARAMETERS : *
+    * BinaryNode t: node to be printed, along with it's
+    * left and right child.
+    * OUTPUT : *
+    * void. Prints out BinaryNode with it's children
+    * internally.
+     ****************************************************/
     private void printTree( BinaryNode<AnyType> t )
     {
         if( t != null )
@@ -138,7 +149,16 @@ public class BinarySearchTree <AnyType extends Comparable<? super AnyType>>{
     {
         return findLeaves(root);
     }
-    
+    /***************************************************
+    * FUNCTION findLeaves : (Find all leaves in BinarySearchTree) *
+    * Finds all leaves in BinarySearchTree *
+    * INPUT PARAMETERS : *
+    * BinaryNode n: node to check for children. If no children
+    * returns 1.
+    * OUTPUT : *
+    * int: returns 1 if BinaryNode input has no children
+    * and is a leaf.
+     ****************************************************/
     public int findLeaves(BinaryNode<AnyType> n)
     {
       if (n.left==null & n.right==null)
@@ -158,7 +178,15 @@ public class BinarySearchTree <AnyType extends Comparable<? super AnyType>>{
     {
         return findOneChild(root);
     }
-    
+    /***************************************************
+    * FUNCTION findOneChild : (Find One Child) *
+    * Finds all BinaryNodes with one child *
+    * INPUT PARAMETERS : *
+    * BinaryNode n: node to check for children. If one child,
+    * returns 1.
+    * OUTPUT : *
+    * int: returns 1 if BinaryNode input has one child.
+     ****************************************************/
     public int findOneChild(BinaryNode<AnyType> n)
     {
         if (n.left==null & n.right==null)
@@ -181,6 +209,16 @@ public class BinarySearchTree <AnyType extends Comparable<? super AnyType>>{
     {
         return findTwoChildren(root);
     }
+    
+    /***************************************************
+    * FUNCTION findTwoChildren : (Find Two Children) *
+    * Finds all BinaryNodes with two children *
+    * INPUT PARAMETERS : *
+    * BinaryNode n: node to check for children. If full node,
+    * returns 1.
+    * OUTPUT : *
+    * int: returns 1 if BinaryNode input has two children.
+     ****************************************************/
     public int findTwoChildren(BinaryNode<AnyType> n)
     {
         if (n.left==null & n.right==null)
@@ -205,6 +243,19 @@ public class BinarySearchTree <AnyType extends Comparable<? super AnyType>>{
         levelOrderQueue.add(root);
         levelOrder(root, levelOrderQueue);
     }
+    /***************************************************
+    * FUNCTION levelOrder : (Find Level Order) *
+    * Prints level order of the BinarySearchTree *
+    * INPUT PARAMETERS : *
+    * BinaryNode n: node to check for children and if so
+    * adds itself and children to Queue L.
+    * Queue L: LinkedList Queue to put node and it's
+    * children into. on remove method, returns the head
+    * of the Queue which is node from the previous iteration
+    * or the root if it's the first time running.
+    * OUTPUT : *
+    * void. Prints n.element internally.
+     ****************************************************/
     public void levelOrder(BinaryNode<AnyType> n, Queue L)
     {
         if(L.isEmpty()){}
@@ -235,6 +286,20 @@ public class BinarySearchTree <AnyType extends Comparable<? super AnyType>>{
        printBetween(root, k1, k2);
     }
     
+    /***************************************************
+    * FUNCTION printBetween : (Print nodes in between k1 and k2) *
+    * Finds and prints all BinaryNodes that have values
+    * in between AnyType k1 and AnyType k2
+    * INPUT PARAMETERS : *
+    * BinaryNode n: Compares n to k1 and k2, if BinaryNode
+    * is in between k1 and k2, it prints the node's element,
+    * and recursively runs with it's left and right children.
+    * If n is outside of the k1 to k2 range, program
+    * recursively runs with either n.left or n.right, reducing
+    * the time complexity from O(N) to O(log N).
+    * OUTPUT : *
+    * void. Prints node elements internally.
+     ****************************************************/
     public void printBetween(BinaryNode<AnyType> n, AnyType k1, AnyType k2)
     {
         int compareResultK1 = n.element.compareTo(k1);
