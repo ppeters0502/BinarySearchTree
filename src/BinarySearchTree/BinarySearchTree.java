@@ -347,22 +347,37 @@ public class BinarySearchTree <AnyType extends Comparable<? super AnyType>>{
     }
     public void printBetween(AnyType k1, AnyType k2)
     {
-       
+       printBetween(root, k1, k2);
     }
     
-    public void printBetween(BinaryNode<AnyType> n)
+    public void printBetween(BinaryNode<AnyType> n, AnyType k1, AnyType k2)
     {
-        
+        int compareResultK1 = n.element.compareTo(k1);
+        int compareResultK2 = n.element.compareTo(k2);
+        if (compareResultK1<0)
+        {
+            if(n.right!=null)
+            { printBetween(n.right, k1, k2); }
+        }
+        else if (compareResultK1>=0)
+        {
+            if (compareResultK2<=0)
+            {
+               System.out.println(n.element);
+               if(n.left!=null)
+               {printBetween(n.left,k1,k2);}
+               if(n.right!=null)
+               {printBetween(n.right,k1,k2);}
+            }
+            else
+            {
+                if(n.left!=null)
+                { printBetween(n.left, k1, k2); }
+            }
+        }
     }
-//    
-//    public void printBetween(BinaryNode n)
-//    {
-//        
-//    }
+
     
-    
-    
- 
         
     
 }

@@ -70,6 +70,7 @@ public class BinarySearchTreeMain {
                                     System.out.println("What value would you like for k2?");
                                     int k2 = sc.nextInt();
                                     System.out.println("Finding node values inbetween "+k1+" and "+k2);
+                                    T.printBetween(k1, k2);
                                     
                                 break;
                             case 8: 
