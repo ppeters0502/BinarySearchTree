@@ -1,8 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+/***************************************************
+ * Program Title: Binary Search Tree
+ * File Name: BinarySearchTree.java*
+ * Author: Patrick Peters *
+ * Class: CSCI3320, Summer 2017 *
+ * Assignment #2 *
+ * Methods:
+ * 
+ ****************************************************/
 package BinarySearchTree;
 
 import java.util.LinkedList;
